@@ -1,23 +1,25 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
-        </ion-toolbar>
-      </ion-header>
+    <ion-tabs>
+      <ion-router-outlet></ion-router-outlet>
+      <ion-tab-bar slot="top">
+        <ion-tab-button tab="latest" href="/tabs/tab1/latest-post">
+          <ion-label>Latest Post</ion-label>
+        </ion-tab-button>
 
-      <ExploreContainer name="Tab 1 page" />
-    </ion-content>
+        <ion-tab-button tab="trending" href="/tabs/tab1/trending">
+          <ion-label>Trending</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="popular" href="/tabs/tab1/popular">
+          <ion-label>Popular</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonRouterOutlet } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 </script>
